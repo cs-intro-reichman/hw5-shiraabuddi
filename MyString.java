@@ -74,7 +74,7 @@ public class MyString {
         //// Replace the following statement with your code
         String newstring = "";
         for (int i = 0; i < str.length(); i++) {
-            if (i < str.length()){
+            if (i < str.length()-1){
             newstring += str.charAt(i) + " ";
             }
             else{
@@ -101,10 +101,6 @@ public class MyString {
         for (int i = 0; i < n; i++) {
             int random = (int) (Math.random() * 26);
             newstring += arrletters[random];
-        }
-        if (n == 0){
-            return null;
-
         }
         return newstring;
     }
