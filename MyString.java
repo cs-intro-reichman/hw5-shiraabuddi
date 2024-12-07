@@ -48,7 +48,7 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
          //// Replace the following statement with your code
-         if (str1.isEmpty() || str2.isEmpty()){
+         if (str2.isEmpty()){
             return false;
         }
          for (int i = 0; i < str1.length(); i++) {
@@ -74,7 +74,12 @@ public class MyString {
         //// Replace the following statement with your code
         String newstring = "";
         for (int i = 0; i < str.length(); i++) {
+            if (i < str.length()){
             newstring += str.charAt(i) + " ";
+            }
+            else{
+                newstring += str.charAt(i); 
+            }
         }
         return newstring;
     }
@@ -116,10 +121,12 @@ public class MyString {
     public static String remove(String str1, String str2) {
        //// Replace the following statement with your code
        String newstring = "";
-       if (str1.isEmpty() || str2.isEmpty()){
+       if (str1.isEmpty()){
             return null;
         }
-
+        if (str2.isEmpty()){
+            return str1;
+        }
         for (int i = 0; i < str1.length(); i++) {
             if (countChar(str1, str1.charAt(i)) > countChar(str2, str1.charAt(i))){
                 if (countChar(str2, str1.charAt(i))== 0){
