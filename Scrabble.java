@@ -67,12 +67,7 @@ public class Scrabble {
 		//// Replace the following statement with your code
 		int sum =0;
 		int index = 0;
-		if (word.length()==HAND_SIZE){
-			sum += 50;
-		}
-		if (MyString.subsetOf("runi", word)){
-			sum += 1000;
-		}
+
 
 		for (int i = 0; i < word.length(); i++) {
 			index = (int)((word.charAt(i)) - 'a');
@@ -80,6 +75,12 @@ public class Scrabble {
 			index =0;
 		}
 		sum *= word.length();
+		if (word.length()==HAND_SIZE){
+			sum += 50;
+		}
+		if (MyString.subsetOf("runi", word)){
+			sum += 1000;
+		}
 
 		return sum;
 	}
