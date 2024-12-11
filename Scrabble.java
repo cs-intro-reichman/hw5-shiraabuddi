@@ -81,6 +81,7 @@ public class Scrabble {
 		if (MyString.subsetOf("runi", word)){
 			sum += 1000;
 		}
+		 
 
 		return sum;
 	}
@@ -126,11 +127,12 @@ public class Scrabble {
 				System.out.println(hand);
 				System.out.println(input + " earned " + correntscore + " points. Score: " + score+" points\n");
 			}
-			else if(!isWordInDictionary(input) && MyString.subsetOf(input, hand)){
-				System.out.println("No such word in the dictionary. Try again.\n");
+			else if(!isWordInDictionary(input)
+			){
+				System.out.println("No such word in the dictionary. Try again.");
 			}
 			else if(!MyString.subsetOf(input, hand)){
-				System.out.println("Invalid word. Try again.\n");
+				System.out.println("Invalid word. Try again.");
 			}
 	}
 		if (hand.length() == 0) {
