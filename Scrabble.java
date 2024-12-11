@@ -117,7 +117,6 @@ public class Scrabble {
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
 			int correntscore = 0;
-			System.out.println(input);
 			if (input.equals(".")){
 				break;
 			}
@@ -127,8 +126,7 @@ public class Scrabble {
 				hand = MyString.remove(hand,input );
 				System.out.println(input + " earned " + correntscore + " points. Score: " + score+" points\n");
 			}
-			else if(!isWordInDictionary(input)
-			){
+			else if(!isWordInDictionary(input) && MyString.subsetOf(input, hand) ){
 				System.out.println("No such word in the dictionary. Try again.");
 			}
 			else if(!MyString.subsetOf(input, hand)){
