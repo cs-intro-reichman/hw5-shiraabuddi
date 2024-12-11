@@ -7,7 +7,9 @@ public class MyString {
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
-        System.out.println(spacedString(hello));
+        System.out.println(subsetOf("c o s t", "o c o s t r z a"));
+        System.out.println(remove("committee", "meet"));
+
         //// Put your other tests here.
     }
 
@@ -21,7 +23,16 @@ public class MyString {
      */
     public static int countChar(String str, char ch) {
         //// Replace the following statement with your code
-        return 0;
+        int count = 0;
+        if (str.isEmpty()){
+            return 0;
+        }
+        for (int i = 0; i <str.length(); i++) {
+            if (str.charAt(i) == ch){
+                count++;
+            }
+        }
+        return count;
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -37,7 +48,18 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
          //// Replace the following statement with your code
-        return false;
+         if (str2.isEmpty()){
+            return false;
+        }
+         for (int i = 0; i < str1.length(); i++) {
+            if (countChar(str2, str1.charAt(i)) == 0){
+                return false;
+            }
+            if (countChar(str2, str1.charAt(i)) < countChar(str1, str1.charAt(i))){
+                return false;
+            }
+        }
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -50,7 +72,16 @@ public class MyString {
      */
     public static String spacedString(String str) {
         //// Replace the following statement with your code
-        return null;
+        String newstring = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (i < str.length()-1){
+            newstring += str.charAt(i) + " ";
+            }
+            else{
+                newstring += str.charAt(i); 
+            }
+        }
+        return newstring;
     }
   
     /**
@@ -65,21 +96,47 @@ public class MyString {
      */
     public static String randomStringOfLetters(int n) {
         //// Replace the following statement with your code
-        return null;
+        char [] arrletters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        String newstring = "";
+        for (int i = 0; i < n; i++) {
+            int random = (int) (Math.random() * 26);
+            newstring += arrletters[random];
+        }
+        return newstring;
     }
 
     /**
      * Returns a string consisting of the string str1, minus all the characters in the
      * string str2. Assumes (without checking) that str2 is a subset of str1.
-     * Example: remove("meet","committee") returns "comit" 
-     * 
+     * Example: remove("committee", "meet") returns "comit" 
+     * "meet"
      * @param str1 - a string
      * @param str2 - a string
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
        //// Replace the following statement with your code
-        return null;
+       String newstring = "";
+       if (str1.isEmpty()){
+            return null;
+        }
+        if (str2.isEmpty()){
+            return str1;
+        }
+        for (int i = 0; i < str1.length(); i++) {
+            if (countChar(str1, str1.charAt(i)) > countChar(str2, str1.charAt(i))){
+                if (countChar(str2, str1.charAt(i))== 0){
+                    newstring += str1.charAt(i);
+                }
+                else if (countChar(newstring, str1.charAt(i))+1 < countChar(str1, str1.charAt(i))) {
+                    newstring += str1.charAt(i);
+                }
+            }
+            else if (countChar(str1, str1.charAt(i)) < countChar(str2, str1.charAt(i))) {
+                newstring += str1.charAt(i);
+            }
+        }
+        return newstring;
     }
 
     /**
