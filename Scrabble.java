@@ -129,17 +129,17 @@ public class Scrabble {
 			}
 			else if(!isWordInDictionary(input)
 			){
-				System.out.println("No such word in the dictionary. Try again.");
+				System.out.println("No such word in the dictionary. Try again.\n");
 			}
 			else if(!MyString.subsetOf(input, hand)){
-				System.out.println("Invalid word. Try again.");
+				System.out.println("Invalid word. Try again.\n");
 			}
 	}
 		if (hand.length() == 0) {
-	        System.out.println("Ran out of letters. Total score: " + score + " points");
+	        System.out.println("Ran out of letters. Total score: " + score + " points\n");
 		} 
 		else {
-			System.out.println("End of hand. Total score: " + score + " points");
+			System.out.println("End of hand. Total score: " + score + " points\n");
 		}
 
 	}
