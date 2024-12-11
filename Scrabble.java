@@ -124,7 +124,6 @@ public class Scrabble {
 				score += wordScore(input);
 				correntscore = wordScore(input);
 				hand = MyString.remove(hand,input );
-				System.out.println(hand);
 				System.out.println(input + " earned " + correntscore + " points. Score: " + score+" points\n");
 			}
 			else if(!isWordInDictionary(input)
@@ -136,7 +135,7 @@ public class Scrabble {
 			}
 	}
 		if (hand.length() == 0) {
-	        System.out.println("Ran out of letters. Total score: " + score + " points\n");
+	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		} 
 		else {
 			System.out.println("End of hand. Total score: " + score + " points");
